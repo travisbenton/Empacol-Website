@@ -11,23 +11,75 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="css/build/global.css">
+        <!--[if lt IE 9]>
+            <script src="js/vendor/html5shiv.js"></script>
+        <![endif]-->
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <header class="header">
+          <nav role='navigation' class="navigation">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Services</a></li>
+              <li>
+                <a href="#">Supplies</a>
+                <ul>
+                  <li><a href="#">Container Blocking & Bracing</a></li>
+                  <li><a href="#">Water Vapor Barrier Protection</a></li>
+                  <li><a href="#">Shrink Wrap Packing</a></li>
+                  <li><a href="#">Foam in Place Packing</a></li>
+                </ul>
+              </li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>  
+        </header>
+
+        <div class="container clearfix">
+          <section class="hero">
+            <img class="hero--logo" src="img/logo.png" alt="">
+            <h1 class="hero--headline">Whatever the logistics, Empacol is the solution to all your Packing Needs</h1>
+            <!-- slideshow?? -->
+            <div class="hero--slideshow">
+              <img src="http://placehold.it/940x400&text=slideshow" alt="">
+            </div>
+          </section>
+
+          <section class="body home">
+            <div class="home--block">
+              <div class="one-half">
+                <img src="http://placehold.it/170" alt="">
+              </div>
+              <div class="one-half">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolor minus eos, excepturi fugit hic ut necessitatibus blanditiis reprehenderit.</p>
+              </div>
+            </div>
+            <div class="home--block">
+              <div class="one-half">
+                <img src="http://placehold.it/170" alt="">
+              </div>
+              <div class="one-half">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, aut voluptatibus odio porro tenetur alias sunt architecto quos ad.</p>
+              </div>
+            </div>
+            <div class="home--block__images">
+              <div class="one-half"><img src="http://placehold.it/200" alt=""></div>
+              <div class="one-half"><img src="http://placehold.it/200" alt=""></div>
+              <div class="one-half"><img src="http://placehold.it/200" alt=""></div>
+              <div class="one-half"><img src="http://placehold.it/200" alt=""></div>
+            </div> 
+          </section>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/build/production.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

@@ -834,6 +834,16 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url("fonts/ACaslonPro-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/ACaslonPro-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/ACaslonPro-Regular.woff") format("woff"), url("fonts/ACaslonPro-Regular.ttf") format("truetype"), url("fonts/ACaslonPro-Regular.svg#66be995022d6f507f528f15386d1e64f") format("svg");
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: 400;
+}
+
 /* ==========================================================================
    Sass Variables
    ========================================================================== */
@@ -853,9 +863,12 @@ table {
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   font-size: 16px;
   background-color: #e5c8a8;
+  height: 100%;
+  width: 100%;
 }
 
 img {
@@ -897,50 +910,65 @@ section + * {
 
 .header {
   height: 6.25em;
-  background: #9d4c0a;
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #9d4c0a), color-stop(45%, #b66c1b), color-stop(55%, #b66c1b), color-stop(100%, #9d4c0a));
-  background: -webkit-linear-gradient(left, #9d4c0a 0%, #b66c1b 45%, #b66c1b 55%, #9d4c0a 100%);
-  background: linear-gradient(to right, #9d4c0a 0%, #b66c1b 45%, #b66c1b 55%, #9d4c0a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-gradient-light', endColorstr='$header-gradient-dark',GradientType=1 );
+  min-width: 67.5em;
+  background: #cf6e1d;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #a25617), color-stop(45%, #cf6e1d), color-stop(55%, #cf6e1d), color-stop(100%, #a25617));
+  background: -webkit-linear-gradient(left, #a25617 0%, #cf6e1d 45%, #cf6e1d 55%, #a25617 100%);
+  background: linear-gradient(to right, #a25617 0%, #cf6e1d 45%, #cf6e1d 55%, #a25617 100%);
 }
 
-.navigation {
-  display: block;
+.header--wrap {
   width: 67.5em;
   height: 100%;
-  position: relative;
   margin: 0 auto;
+  position: relative;
 }
 
-.navigation ul {
+.header--navigation ul {
   position: absolute;
   right: 0;
-  bottom: 0.625em;
-  float: left;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.navigation ul a {
-  text-decoration: none;
-  padding: 0 0.9375em;
-  color: #fff;
-}
-
-.navigation ul li + li:before {
-  content: '|';
-  color: #fff;
-}
-
-.navigation ul li {
-  position: relative;
-  text-transform: uppercase;
+  bottom: 0;
   float: left;
   margin: 0;
   padding: 0;
 }
 
-.navigation ul ul {
+.header--navigation ul a {
+  text-decoration: none;
+  padding: 0 0.9375em;
+  color: #fff;
+}
+
+.header--navigation ul li + li:before {
+  content: '|';
+  color: #fff;
+  position: absolute;
+  left: -1px;
+}
+
+.header--navigation ul li {
+  position: relative;
+  text-transform: uppercase;
+  float: left;
+  margin: 0;
+  padding: 1em 0;
+  font-size: 0.9375em;
+}
+
+.header--navigation ul li:hover {
+  background: #f7ede3;
+}
+
+.header--navigation ul li:hover a {
+  color: #58595b;
+}
+
+.header--navigation ul li:hover > ul {
+  display: block;
+  color: #58595b;
+}
+
+.header--navigation ul ul {
   display: none;
   position: absolute;
   top: 100%;
@@ -948,23 +976,61 @@ section + * {
   padding: 0;
 }
 
-.navigation ul ul li {
+.header--navigation ul ul li {
   float: none;
   width: 15.625em;
-  text-transform: lowercase;
+  text-transform: none;
+  background: #f7ede3;
+  padding: 0.625em 0;
 }
 
-.navigation ul ul a {
+.header--navigation ul ul li:before {
+  content: '';
+}
+
+.header--navigation ul ul li:hover {
+  background: #e1c19c;
+}
+
+.header--navigation ul ul a {
   line-height: 120%;
 }
 
-.navigation ul ul ul {
+.header--navigation ul ul ul {
   top: 0;
   left: 100%;
 }
 
-.navigation ul li:hover > ul {
+.header--logo {
+  color: #fff;
+  position: absolute;
+  left: 2.5em;
+  bottom: 0.625em;
+}
+
+.header--logo span {
   display: block;
+  padding-top: 0.3125em;
+  font-family: "Adobe Caslon Pro", helvetica, sans-serif;
+  font-size: 3.25em;
+  font-weight: bold;
+  letter-spacing: 0.125em;
+  text-shadow: 0.0625em 0.0625em 0.125em #000;
+  text-transform: uppercase;
+  top: 0.3125em;
+  position: relative;
+}
+
+.header--logo span + span {
+  display: block;
+  font-size: 1em;
+  font-family: Helvetica, sans-serif;
+  letter-spacing: 0;
+  text-shadow: none;
+  font-weight: normal;
+  left: 7.5em;
+  top: auto;
+  letter-spacing: 0.1875em;
 }
 
 .hero--logo {
@@ -973,9 +1039,13 @@ section + * {
 
 .hero--headline {
   margin: 0;
-  color: #b66c1b;
+  font-size: 3.125em;
+  font-family: "Adobe Caslon Pro", helvetica, sans-serif;
+  font-weight: lighter;
+  line-height: 1;
+  color: #cf6e1d;
   text-align: center;
-  padding-top: 1em;
+  padding-top: 0.6em;
 }
 
 .hero--slideshow img {

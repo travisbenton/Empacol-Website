@@ -1,24 +1,28 @@
 @import 'h5bp';
 @import 'normalize';
+@import 'fonts';
 
 
 /* ==========================================================================
    Sass Variables
    ========================================================================== */
 // general
-$primary-color: #b66c1b;
+$primary-color: #a25617;
 $secondary-color: #e5c8a8;
 
 // document
 $base-font-size: 16px;
 $background-color: $secondary-color;
 
+$primary-font: 'Adobe Caslon Pro', helvetica, sans-serif;
+$secondary-font: Helvetica, sans-serif;
+
 $primary-text-color: #000;
 $secondary-text-color: #58595b;
 
 // header
-$header-gradient-light: #9d4c0a;
 $header-gradient-dark: $primary-color;
+$header-gradient-light: lighten($primary-color, 10%);
 $nav-text-color: #fff;
 
 /* ==========================================================================
@@ -39,9 +43,12 @@ $nav-text-color: #fff;
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   font-size: $base-font-size;
   background-color: $background-color;
+  height: 100%;
+  width: 100%;
 }
 
 img {
@@ -53,7 +60,7 @@ p {
   margin: 0;
 }
 
-// lobotomizing
+// lobotomizing: * + *
 // http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 p + * {
   margin: 1em;
@@ -86,89 +93,180 @@ section + * {
 // header
 .header {
   height: em(100px);
+  min-width: em(1080px);
   background: $header-gradient-light;
-  background: -moz-linear-gradient(left,  $header-gradient-light 0%, $header-gradient-dark 45%, $header-gradient-dark 55%, $header-gradient-light 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$header-gradient-light), color-stop(45%,$header-gradient-dark), color-stop(55%,$header-gradient-dark), color-stop(100%,$header-gradient-light));
-  background: -webkit-linear-gradient(left,  $header-gradient-light 0%,$header-gradient-dark 45%,$header-gradient-dark 55%,$header-gradient-light 100%);
-  background: -o-linear-gradient(left,  $header-gradient-light 0%,$header-gradient-dark 45%,$header-gradient-dark 55%,$header-gradient-light 100%);
-  background: -ms-linear-gradient(left,  $header-gradient-light 0%,$header-gradient-dark 45%,$header-gradient-dark 55%,$header-gradient-light 100%);
-  background: linear-gradient(to right,  $header-gradient-light 0%,$header-gradient-dark 45%,$header-gradient-dark 55%,$header-gradient-light 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-gradient-light', endColorstr='$header-gradient-dark',GradientType=1 );
+  background: -moz-linear-gradient(
+    left,   
+    $header-gradient-dark 0%, 
+    $header-gradient-light 45%, 
+    $header-gradient-light 55%, 
+    $header-gradient-dark 100%
+  );
+  background: -webkit-gradient(
+    linear, left top, right top, 
+    color-stop(0%,$header-gradient-dark), 
+    color-stop(45%,$header-gradient-light), 
+    color-stop(55%,$header-gradient-light), 
+    color-stop(100%,$header-gradient-dark)
+  );
+  background: -webkit-linear-gradient(
+    left,  
+    $header-gradient-dark 0%,
+    $header-gradient-light 45%,
+    $header-gradient-light 55%,
+    $header-gradient-dark 100%
+  );
+  background: -o-linear-gradient(
+    left,  
+    $header-gradient-dark 0%,
+    $header-gradient-light 45%,
+    $header-gradient-light 55%,
+    $header-gradient-dark 100%
+  );
+  background: -ms-linear-gradient(
+    left,  
+    $header-gradient-dark 0%,
+    $header-gradient-light 45%,
+    $header-gradient-light 55%,
+    $header-gradient-dark 100%
+  );
+  background: linear-gradient(
+    to right,  
+    $header-gradient-dark 0%,
+    $header-gradient-light 45%,
+    $header-gradient-light 55%,
+    $header-gradient-dark 100%
+  );
 }
 
-.navigation {
-  display: block;
+.header--wrap {
   width: em(1080px);
   height: 100%;
-  position: relative;
   margin: 0 auto;
+  position: relative;
+
 }
 
-.navigation ul {
+.header--navigation ul {
   position: absolute;
   right: 0;
-  bottom: em(10px);
-  float: left;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.navigation ul a {
-  text-decoration: none;
-  padding: 0 em(15px);
-  color: $nav-text-color;
-}
-
-.navigation ul li + li:before {
-  content: '|';
-  color: $nav-text-color;
-}
-
-.navigation ul li {
-  position: relative;
-  text-transform: uppercase;
+  bottom: 0;
   float: left;
   margin: 0;
   padding: 0;
 }
+.header--navigation ul a {
+  text-decoration: none;
+  padding: 0 em(15px);
+  color: $nav-text-color;
+}
+.header--navigation ul li + li:before {
+  content: '|';
+  color: $nav-text-color;
+  position: absolute;
+  left: -1px;
+}
+.header--navigation ul li {
+  position: relative;
+  text-transform: uppercase;
+  float: left;
+  margin: 0;
+  padding: em(15px, 15px) 0;
+  font-size: em(15px);
 
-.navigation ul ul {
+  &:hover {
+    background: lighten($secondary-color, 15%);
+  }
+
+  &:hover a {
+    color: $secondary-text-color;
+  }
+
+  &:hover > ul {
+    display: block;
+    color: $secondary-text-color;
+  }
+}
+.header--navigation ul ul {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   padding: 0;
 }
-
-.navigation ul ul li {
+.header--navigation ul ul li {
   float: none;
   width: em(250px);
-  text-transform: lowercase;
-}
+  text-transform: none;
+  background: lighten($secondary-color, 15%);
+  padding: em(10px) 0;
 
-.navigation ul ul a {
+  &:before {
+    content: '';
+  }
+
+  &:hover {
+    background: darken($secondary-color, 3%);
+  }
+}
+.header--navigation ul ul a {
   line-height: 120%;
 }
-
-.navigation ul ul ul {
+.header--navigation ul ul ul {
   top: 0;
   left: 100%;
 }
 
-.navigation ul li:hover > ul {
-  display: block;
+.header--logo {
+  color: #fff;
+  position: absolute;
+  left: em(40px);
+  bottom: em(10px);
+
+  span {
+    display: block;
+    padding-top: em(5px);
+    font-family: $primary-font;
+    font-size: em(52px);
+    font-weight: bold;
+    letter-spacing: em(2px);
+    text-shadow: em(1px) em(1px) em(2px) #000;  
+    text-transform: uppercase;
+    top: em(5px);
+    position: relative;
+  }
+
+  span + span {
+    display: block;
+    font-size: em(16px  );
+    font-family: $secondary-font;
+    letter-spacing: 0;
+    text-shadow: none;  
+    font-weight: normal;
+    left: em(120px);
+    top: auto;
+    letter-spacing: em(3px);
+  }
 }
+
 
 .hero--logo {
   float: left;
 }
+
 .hero--headline {
   margin: 0;
-  color: $primary-color;
+  font-size: em(50px);
+  font-family: $primary-font;
+  font-weight: lighter;
+  line-height: 1;
+  color: $header-gradient-light;
   text-align: center;
-  padding-top: em(16px);
+  padding-top: em(30px, 50px);
 }
+
 .hero--slideshow {
+
   img {
     border-radius: em(40px);
   }
@@ -181,6 +279,7 @@ section + * {
     border-radius: em(20px);
   }
 }
+
 .home--block {
   width: em(370px); 
   float: left;
@@ -189,6 +288,7 @@ section + * {
     padding-right: em(10px);
   }
 }
+
 .home--block__images {
   width: em(200px);
   float: left;

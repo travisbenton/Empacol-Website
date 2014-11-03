@@ -60,7 +60,7 @@ p {
   margin: 0;
 }
 
-// lobotomizing: * + *
+// lobotomized owl: * + *
 // http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 p + * {
   margin: 1em;
@@ -86,7 +86,7 @@ section + * {
 .container {
   width: em(1080px); 
   margin: 0 auto;
-  padding: 0 em(70px);
+  padding: 0 em(70px) em(50px);
   background-color: #fff;
 }
 
@@ -157,7 +157,7 @@ section + * {
 }
 .header--navigation ul a {
   text-decoration: none;
-  padding: 0 em(15px);
+  padding: 0 em(23px);
   color: $nav-text-color;
 }
 .header--navigation ul li + li:before {

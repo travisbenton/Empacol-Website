@@ -229,7 +229,7 @@ section + * {
     font-family: $primary-font;
     font-size: em(52px);
     font-weight: bold;
-    letter-spacing: em(2px);
+    letter-spacing: em(1px);
     text-shadow: em(1px) em(1px) em(2px) #000;  
     text-transform: uppercase;
     top: em(5px);
@@ -238,7 +238,7 @@ section + * {
 
   span + span {
     display: block;
-    font-size: em(16px  );
+    font-size: em(16px);
     font-family: $secondary-font;
     letter-spacing: 0;
     text-shadow: none;  

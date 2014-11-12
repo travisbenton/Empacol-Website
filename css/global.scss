@@ -57,13 +57,13 @@ img {
 }
 
 p {
-  margin: 0;
+  margin: 0 em(16px);
 }
 
 // lobotomized owl: * + *
 // http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 p + * {
-  margin: 1em;
+  margin: em(16px);
 }
 
 section + * {
@@ -77,8 +77,12 @@ section + * {
 .one-third {
   width: 33%;
 }
+.two-third {
+  width: 66%;
+}
 .one-half,
-.one-third {
+.one-third,
+.two-third {
   float: left;
 }
 
@@ -88,6 +92,11 @@ section + * {
   margin: 0 auto;
   padding: 0 em(70px) em(50px);
   background-color: #fff;
+}
+
+.container--inner {
+  line-height: 2;
+  font-weight: bold;
 }
 
 // header
@@ -108,27 +117,6 @@ section + * {
     color-stop(45%,$header-gradient-light), 
     color-stop(55%,$header-gradient-light), 
     color-stop(100%,$header-gradient-dark)
-  );
-  background: -webkit-linear-gradient(
-    left,  
-    $header-gradient-dark 0%,
-    $header-gradient-light 45%,
-    $header-gradient-light 55%,
-    $header-gradient-dark 100%
-  );
-  background: -o-linear-gradient(
-    left,  
-    $header-gradient-dark 0%,
-    $header-gradient-light 45%,
-    $header-gradient-light 55%,
-    $header-gradient-dark 100%
-  );
-  background: -ms-linear-gradient(
-    left,  
-    $header-gradient-dark 0%,
-    $header-gradient-light 45%,
-    $header-gradient-light 55%,
-    $header-gradient-dark 100%
   );
   background: linear-gradient(
     to right,  
@@ -254,6 +242,15 @@ section + * {
   float: left;
 }
 
+.hero--tag {
+  color: #5d5d60;
+  font-size: 1.35em;
+  font-weight: normal;
+  position: relative;
+  left: em(-20px);
+  top: em(10px);
+}
+
 .hero--headline {
   margin: 0;
   font-size: em(50px);
@@ -265,8 +262,11 @@ section + * {
   padding-top: em(30px, 50px);
 }
 
-.hero--slideshow {
+.hero--headline__inner {
+  text-align: left;
+}
 
+.hero--slideshow {
   img {
     border-radius: em(40px);
   }
@@ -302,5 +302,28 @@ section + * {
     border-radius: 50%;
     border: em(8px) solid $secondary-text-color;
     box-shadow: em(5px) em(5px) em(5px) 0 #ccc;
+  }
+}
+
+.logo-text {
+  height: em(130px);
+  width: 100%;
+  border-radius: 20px;
+  background: #0173a7;
+  background: -moz-linear-gradient(left,  #0173a7 0%, #63a4c0 50%, #0173a7 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#0173a7), color-stop(50%,#63a4c0), color-stop(100%,#0173a7));
+  background: linear-gradient(to right,  #0173a7 0%,#63a4c0 50%,#0173a7 100%);
+  img {
+    float: left;
+    border-radius: 20px 0 0 20px;
+  }
+  p {
+    color: white;
+    font-family: "Adobe Caslon Pro", helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: em(45px);
+    line-height: 1;
+    text-align: center;
+    padding-top: em(8px);
   }
 }

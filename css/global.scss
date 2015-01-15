@@ -51,19 +51,23 @@ body {
   width: 100%;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 img {
   max-width: 100%;
   height: auto;
 }
 
 p {
-  margin: 0 em(16px);
+  margin: 0;
 }
 
 // lobotomized owl: * + *
 // http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 p + * {
-  margin: em(16px);
+  margin: em(16px) 0;
 }
 
 section + * {
@@ -84,6 +88,7 @@ section + * {
 .one-third,
 .two-third {
   float: left;
+  padding: em(16px);
 }
 
 //--- Specific stuff...
@@ -142,6 +147,7 @@ section + * {
   float: left;
   margin: 0;
   padding: 0;
+  z-index: 2;
 }
 .header--navigation ul a {
   text-decoration: none;
@@ -289,6 +295,17 @@ section + * {
   }
 }
 
+.home--block__images img,
+.showcase img {
+  border-radius: 50%;
+  border: em(8px) solid $secondary-text-color;
+  box-shadow: em(5px) em(5px) em(5px) 0 #ccc;
+}
+
+.showcase img {
+  margin: 0 em(5px);
+}
+
 .home--block__images {
   width: em(200px);
   float: left;
@@ -296,12 +313,6 @@ section + * {
   
   .one-half {
     padding: em(2.5px);
-  }
-  
-  img {
-    border-radius: 50%;
-    border: em(8px) solid $secondary-text-color;
-    box-shadow: em(5px) em(5px) em(5px) 0 #ccc;
   }
 }
 
@@ -325,5 +336,34 @@ section + * {
     line-height: 1;
     text-align: center;
     padding-top: em(8px);
+  }
+}
+
+.showcase {
+  h2 {
+    color: #58595b;
+  }
+}
+
+.order-now {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #58595b;
+  font-size: 1.25em;
+  line-height: 1.5;
+  margin-left: em(15px);
+  vertical-align: middle;
+  font-weight: lighter;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: em(35px) 0 em(35px) em(30px);
+    border-color: transparent transparent transparent #cf6e1d;
+    left: 110%;
+    top: 0;
   }
 }

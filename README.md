@@ -1,6 +1,6 @@
 # Empacol-Website
 ##General
-Site is written using [Grunt](http://gruntjs.com/) as a task runner and uses a [Sass](http://sass-lang.com) preprocessor for the CSS files. Everything else is pretty straight forward. 
+Site is written using [Grunt](http://gruntjs.com/) as a task runner and the [Sass](http://sass-lang.com) preprocessor for CSS. Everything else is pretty straight forward. 
 ##Setting the up environment
 1. Download [Git](http://git-scm.com/downloads) if you don't already have it installed, then clone this repository to your desktop.
 2. Download and install [Node.js](http://nodejs.org/)
